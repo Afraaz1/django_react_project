@@ -12,6 +12,7 @@ const Home = () => {
     const handleQuery = (event) => {
         event.preventDefault();
     }
+    
 
     return <Grid 
     container direction="column" 

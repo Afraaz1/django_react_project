@@ -53,6 +53,7 @@ function App() {
         </Routes>
       </main>
     </Router>
+    made by Afraaz
     </QueryContext.Provider>
   );
 }
