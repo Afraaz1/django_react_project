@@ -10,6 +10,7 @@ import Single from'./pages/Single';
 import Results from'./pages/Results';
 import MainNavigation from './components/MainNavigation';
 import {QueryContext} from './context/query'
+import axios from 'axios';
 
 
 function App() {
