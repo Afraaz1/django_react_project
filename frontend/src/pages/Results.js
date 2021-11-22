@@ -1,11 +1,33 @@
-import React from 'react';
+import AnimeResults from '../components/AnimeResuts';
+import React, { useContext, useEffect, useState } from 'react';
+import { QueryContext } from '../context/query';
+import { Box, Typography} from '@material-ui/core'
 
 const Results = () => {
-    return (
-        <div>
-            <h1>results</h1>
-        </div>
-    );
-};
+    const query = useContext(QueryContext);
+    const [dataExists, setDataExists] = useState(true);
+
+    useEffect(() => {
+        console.log(query.animeData)
+        if (query.animeData === undefined || query.animeData.length === 0) {
+          try {
+            query.setData(JSON.parse(localStorage.getItem('myData')));
+            setDataExists(true);
+          } catch (error) {
+            console.log(error);
+            setDataExists(false);
+          }
+        }
+      }, [query]);
+
+      return (
+        <Box mt={2}>
+          {(dataExists && <AnimeResults data={query.animeData} />) || (
+            <Typography>No Data Exists</Typography>
+          )}
+        </Box>
+      );
+    };
+    
 
 export default Results;
