@@ -1,4 +1,4 @@
-import AnimeResults from '../components/AnimeResuts';
+import AnimeResults from '../components/AnimeResults';
 import React, { useContext, useEffect, useState } from 'react';
 import { QueryContext } from '../context/query';
 import { Box, Typography} from '@material-ui/core'

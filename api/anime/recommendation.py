@@ -30,7 +30,7 @@ cs.shape
 
 #Looking up shows
 
-def lookUpAnime(title):
+def recommendAnime(title):
     data = animeData[animeData['title'].str.match(title)]
     anime_id = data['anime_id'].values[0]
 #Creating a list of recommendations)

@@ -1,4 +1,4 @@
-.animecard__container {
+  .animecard__container {
     margin: 10px;
   }
   

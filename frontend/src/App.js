@@ -27,9 +27,21 @@ function App() {
   };
 
   const query = (anime) => {
-    return fetch(
-      `https://api.jikan.moe/v3/search/anime?q=${anime}&limit=10`
-    ).then((response) => response.json());
+    let data;
+    axios.get('http://localhost:8000/api/anime/search',{
+      params: {
+        anime
+      }
+    })
+    .then(res=> {
+      data = res.data;
+      this.setAnimeData({
+        details: data
+      })
+    })
+    .catch(err=> { 
+    })
+    return data
   }
 
   return (
