@@ -13,7 +13,21 @@ from .serializers import AnimeSerializer, RecommendSerializer
 # Create your views here.
 #post and get requests are handled
 
-class AnimeListCreate(ListCreateAPIView):
-    queryset = Anime.objects.all()
-    serializer_class = AnimeSerializer
+class AnimeListCreate(APIView):
 
+    def get(self, request):
+        line = request.get_full_path()
+        find = line.split('/')[-1]
+        title = find[7:].title()
+        titles = Anime.objects.filter(title=title).values() #filters data
+        if str(titles) == '':
+            return Response('No anime found') 
+        else:
+            return Response(titles)
+
+class AnimeListRecommend(APIView):
+
+    def get(self, request, title):
+        title = title.title()
+        animeList = recommendAnime(title)
+        return Response(animeList)

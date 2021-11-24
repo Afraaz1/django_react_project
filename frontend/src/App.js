@@ -27,21 +27,9 @@ function App() {
   };
 
   const query = (anime) => {
-    let data;
-    axios.get('http://localhost:8000/api/anime/search',{
-      params: {
-        anime
-      }
-    })
-    .then(res=> {
-      data = res.data;
-      this.setAnimeData({
-        details: data
-      })
-    })
-    .catch(err=> { 
-    })
-    return data
+    return fetch(
+      `http://localhost:8000/api/anime/title=${anime}`
+    ).then((response) => response.json());
   }
 
   return (

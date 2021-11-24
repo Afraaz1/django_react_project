@@ -1,8 +1,9 @@
 from anime import views 
-from django.urls import path
-from .views import *
+from django.urls import path, re_path
+from .views import AnimeListCreate, AnimeListRecommend
 
 
 urlpatterns = [ 
-    path('api/anime/', views.AnimeListCreate.as_view()),
-]
+    re_path('api/anime/.', AnimeListCreate.as_view()),
+    path('recommend/<str:title>', AnimeListRecommend.as_view(), name='recommend')
+    ]

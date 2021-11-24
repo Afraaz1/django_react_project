@@ -62,5 +62,8 @@ class Anime(models.Model):
 
 
 class Recommend(models.Model):
-    title = models.CharField(max_length=200, blank=False, default='')
+    header = models.CharField(max_length=200, blank=False, default='')
+    anime_id = models.ForeignKey(Anime, on_delete=models.CASCADE)
+
+    
 
