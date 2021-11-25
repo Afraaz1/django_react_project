@@ -28,7 +28,7 @@ function App() {
 
   const query = (anime) => {
     return fetch(
-      `http://localhost:8000/api/anime/title=${anime}`
+      `http://localhost:8000/api/anime/${anime}`
     ).then((response) => response.json());
   }
 

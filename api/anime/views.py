@@ -18,16 +18,21 @@ class AnimeListCreate(APIView):
     def get(self, request):
         line = request.get_full_path()
         find = line.split('/')[-1]
-        title = find[7:].title()
-        titles = Anime.objects.filter(title=title).values() #filters data
-        if str(titles) == '':
-            return Response('No anime found') 
-        else:
+        title = find.title()
+        if(bool(title)):
+            titles = Anime.objects.filter(title=title).values() #filters data
             return Response(titles)
+        else:
+            return Response("No data found")
 
 class AnimeListRecommend(APIView):
 
     def get(self, request, title):
         title = title.title()
         animeList = recommendAnime(title)
-        return Response(animeList)
+        data = []
+        for anime in animeList:
+            anime = anime.title()
+            animeData = Anime.objects.filter(title=anime).values()
+            data.append(animeData)
+        return Response(data)
