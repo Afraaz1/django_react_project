@@ -10,7 +10,6 @@ const SingleAnime = (props) => {
   const airing = String(props.info.airing);
   const broadcast = props.info.broadcast;
   const score = props.info.score;
-  const url = props.info.url;
   return (
     <Grid
       container
@@ -41,9 +40,6 @@ const SingleAnime = (props) => {
           <Typography variant="h5" component="h2">
             Rating: {rating}
           </Typography>
-          <Link component="button" variant="body1" href={url}>
-            My Anime List
-          </Link>
         </Paper>
       </Grid>
     </Grid>

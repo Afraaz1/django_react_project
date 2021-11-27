@@ -6,7 +6,7 @@ class AnimeSerializer(serializers.ModelSerializer):
  
     class Meta:
         model = Anime
-        fields = ('title', 'image_url', 'rating', 'airing','broadcast', 'score')
+        fields = [ 'title', 'image_url', 'rating', 'airing','broadcast', 'score']
 
 class RecommendSerializer(serializers.ModelSerializer):
 

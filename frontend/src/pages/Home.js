@@ -18,6 +18,7 @@ const handleQuery = (event) => {
     query.query(input).then((data) => {
         console.log(data);
         query.setData(data.results)
+        console.log(data.results)
         localStorage.setItem('myData', JSON.stringify(data.results));
         navigate('/Results');
     });  
@@ -43,7 +44,7 @@ const handleQuery = (event) => {
                 <form className="form">
                     <FormControl type="submit" className="formControl" >
                         <Input 
-                        placeHolder="What anime do you want a recommendation for?" 
+                        placeholder="What anime do you want a recommendation for?" 
                         value={input} 
                         onChange={(event) => setInput(event.target.value)}
                         className = "input"

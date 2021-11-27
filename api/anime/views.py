@@ -20,13 +20,13 @@ class AnimeListCreate(APIView):
         find = line.split('/')[-1]
         title = find.title()
         if(bool(title)):
-            titles = Anime.objects.filter(title=title).values() #filters data
+            titles = Anime.objects.filter(title__icontains=title).values() #filters data
             return Response(titles)
         else:
             return Response("No data found")
-
+    
 class AnimeListRecommend(APIView):
-
+    
     def get(self, request, title):
         title = title.title()
         animeList = recommendAnime(title)
@@ -36,3 +36,17 @@ class AnimeListRecommend(APIView):
             animeData = Anime.objects.filter(title=anime).values()
             data.append(animeData)
         return Response(data)
+
+@api_view(['GET'])
+def anime_detail(request, pk):
+    """
+    Retrieve, update or delete a code snippet.
+    """
+    try:
+        anime = Anime.objects.get(pk=pk)
+    except Anime.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = AnimeSerializer(anime)
+        return Response(serializer.data)

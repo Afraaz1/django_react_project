@@ -11,7 +11,7 @@ const AnimeCard = (props) => {
 
   const onClickHandler = (event) => {
     event.preventDefault();
-    fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}`)
+    fetch(`http://127.0.0.1:8000/anime_id/${props.anime.anime_id}`)
       .then((response) => response.json())
       .then((data) => {
         query.setSingle(data);
