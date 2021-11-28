@@ -13,6 +13,10 @@ from .serializers import AnimeSerializer, RecommendSerializer
 # Create your views here.
 #post and get requests are handled
 
+class AnimeListTest(ListCreateAPIView):
+    QuerySet = Anime.fetch.all 
+    serializers = AnimeSerializer
+
 class AnimeListCreate(APIView):
 
     def get(self, request):

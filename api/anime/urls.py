@@ -6,8 +6,8 @@ from anime import views
 
 urlpatterns = [ 
     re_path('anime/.', AnimeListCreate.as_view()),
-    path('recommend/<str:title>', AnimeListRecommend.as_view(), name='recommend'),
-    path('anime_id/<int:pk>', views.anime_detail, name='anime_id'),
+    path('anime/recommend/<str:title>', AnimeListRecommend.as_view(), name='recommend'),
+    path('anime/anime_id/<int:pk>', views.anime_detail, name='anime_id'),
     ]
 
 

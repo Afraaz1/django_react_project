@@ -16,9 +16,7 @@ const Home = () => {
 const handleQuery = (event) => {
     event.preventDefault();
     query.query(input).then((data) => {
-        console.log(data);
         query.setData(data.results)
-        console.log(data.results)
         localStorage.setItem('myData', JSON.stringify(data.results));
         navigate('/Results');
     });  
