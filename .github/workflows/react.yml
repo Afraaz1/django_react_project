@@ -1,5 +1,6 @@
 # Read more about setting it up
 # https://medium.com/@ljmocic/deploying-react-application-to-aws-s3-using-github-actions-85addacaeace
+name: React CI
 
 on:
   push:
@@ -20,14 +21,6 @@ jobs:
         run: npm install    
       - name: Test
         run: npm test
-        env:
-          CI: true
-      - name: Generate build
         run: npm run build
       # Share artifact inside workflow
-      - name: Share artifact inside workflow
-        uses: actions/upload-artifact@v1
-        with:
-          name: react-github-actions-build
-          path: build
- 
+   
