@@ -3,6 +3,7 @@ import AnimeCard from './AnimeCard';
 import { GridList } from '@material-ui/core';
 
 const AnimeResults = (props) => {
+  //Maps data from every array onto an anime card
   return (
     <GridList className="animelist__container">
       {props.data.map((anime) => (

@@ -3,6 +3,7 @@ import { Grid, Paper, Typography, Link } from '@material-ui/core';
 import './SingleAnime.scss';
 
 const SingleAnime = (props) => {
+  //Fetches props
   console.log(props.info);
   const title = props.info.title;
   const imageUrl = props.info.image_url;
@@ -10,6 +11,7 @@ const SingleAnime = (props) => {
   const airing = String(props.info.airing);
   const broadcast = props.info.broadcast;
   const score = props.info.score;
+  
   return (
     <Grid
       container

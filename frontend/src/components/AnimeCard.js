@@ -5,21 +5,23 @@ import { Typography, Link, Paper, GridListTile, Grid } from '@material-ui/core';
 import './AnimeCard.scss';
 
 const AnimeCard = (props) => {
-  const navigation = useNavigate();
+  const navigation = useNavigate(); //Setting up navigation
 
   const query = useContext(QueryContext);
-
+  // Fetches data about a specific anime when a card is clicked.
+  // Activates when a anime card is clicked
   const onClickHandler = (event) => {
     event.preventDefault();
     fetch(`http://127.0.0.1:8000/anime_id/${props.anime.anime_id}`)
       .then((response) => response.json())
       .then((data) => {
-        query.setSingle(data);
+        query.setSingle(data); 
         localStorage.setItem('singleData', JSON.stringify(data));
         navigation('/single');
       });
   };
 
+  //Setting up props 
   const title =
     props.anime.title.length > 20
       ? `${props.anime.title.substring(0, 15)}...`
@@ -31,6 +33,7 @@ const AnimeCard = (props) => {
       : props.anime.synopsis;
 
   return (
+    //Loops through and creates an Animecard for every result
     <GridListTile className="animecard__container">
       <Grid container item xs={12}>
         <Paper className="animecard__paper">

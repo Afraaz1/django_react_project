@@ -13,16 +13,16 @@ from .serializers import AnimeSerializer, RecommendSerializer
 # Create your views here.
 #post and get requests are handled
 
-class AnimeListTest(ListCreateAPIView):
-    QuerySet = Anime.fetch.all 
-    serializers = AnimeSerializer
-
 class AnimeListCreate(APIView):
-
+    #On get requests sends data
     def get(self, request):
+
+        #In order to find the query
         line = request.get_full_path()
         find = line.split('/')[-1]
         title = find.title()
+
+        #Ensuring that inputted title exists
         if(bool(title)):
             titles = Anime.objects.filter(title__icontains=title).values() #filters data
             return Response(titles)

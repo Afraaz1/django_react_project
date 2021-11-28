@@ -28,14 +28,13 @@ function App() {
 
   const query = (anime) => {
     return fetch(
-      `http://localhost:8000/anime/${anime}`
+      `http://localhost:8000/anime.${anime}`
     ).then((response) => response.json());
   }
 
   return (
     <QueryContext.Provider 
-    value={{ query, animeData, setData, singleData, setSingle }}
-    >
+    value = {{ query, animeData, setData, singleData, setSingle}}>
     <Router>
       <main>
         <MainNavigation/>

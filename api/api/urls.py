@@ -16,8 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+#Handing over URL control to api/anime
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include('anime.urls')),
-
 ]
