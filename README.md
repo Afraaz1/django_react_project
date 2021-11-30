@@ -17,3 +17,8 @@
 1. `cd` into `frontend`
 2. Install dependencies using `npm install`
 3. Run server via `npm start`
+
+# Docker for containerisation 
+
+1. Run `docker build --tag backend` .
+2. Start server using `docker run --publish 8000:8000 backend`
