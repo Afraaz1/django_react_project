@@ -32,9 +32,12 @@ class AnimeListCreate(APIView):
 class AnimeListRecommend(APIView):
     
     def get(self, request, title):
+        #getting parameters from title
         title = title.title()
         animeList = recommendAnime(title)
         data = []
+
+        #filters list to return all the data of the recommended list to pass to frontend
         for anime in animeList:
             anime = anime.title()
             animeData = Anime.objects.filter(title=anime).values()
@@ -43,14 +46,13 @@ class AnimeListRecommend(APIView):
 
 @api_view(['GET'])
 def anime_detail(request, pk):
-    """
-    Retrieve, update or delete a code snippet.
-    """
+    #Ensures primary key exists before returning data, error if it doesnt
     try:
         anime = Anime.objects.get(pk=pk)
     except Anime.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
+    #If data requested is valid return database data
     if request.method == 'GET':
         serializer = AnimeSerializer(anime)
         return Response(serializer.data)

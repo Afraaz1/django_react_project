@@ -11,7 +11,7 @@ ANIME_TYPES = [
     ("ONA", "ONA"),
     ("TV", "TV"),
 ]
-
+#Specificing data so that no incorrect data can be inputted
 SOURCE_TYPES = [
     ("Original", "Original"),
     ("Manga", "Manga"),
@@ -29,6 +29,7 @@ STATUS = [
     ("Not yet aired", "Not yet aired"),
 ]
 
+#Declaring database fields
 class Anime(models.Model):
     anime_id = models.IntegerField(max_length=11, primary_key=True)
     title = models.CharField(max_length=200, blank=False, default ='')
@@ -60,7 +61,7 @@ class Anime(models.Model):
     studio = models.CharField(max_length=200, default ='')
     genre = models.CharField(max_length=300, default ='')
 
-
+#Declaring recommend database fields
 class Recommend(models.Model):
     header = models.CharField(max_length=200, blank=False, default='')
     anime_id = models.ForeignKey(Anime, on_delete=models.CASCADE)

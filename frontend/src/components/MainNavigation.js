@@ -8,6 +8,8 @@ import { makeStyles, fade } from '@material-ui/core/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import { QueryContext } from '../context/query';
 
+
+// Main navigation bar from material ui components, only edited by me not coded by me
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,

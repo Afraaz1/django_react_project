@@ -21,6 +21,7 @@ const SingleAnime = (props) => {
       alignContent="center"
       alignItems="center"
       className="singleanime__container"
+      //Uses local storage to make a single anime appear on the page alone
     >
       <Grid item>
         <img src={imageUrl} alt={title} className="singleanime__image" />

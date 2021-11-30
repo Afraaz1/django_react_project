@@ -15,24 +15,30 @@ import axios from 'axios';
 
 function App() {
 
-  const [animeData, setAnimeData] = useState([]);
+  //Setting up methods to store data using use states
+  const [animeData, setAnimeData] = useState([]); 
   const [singleData, setSingleData] = useState({});
+  
 
+  //Saving data
   const setData = (data) => {
     setAnimeData(data)
   };
 
+  //Setting data for a single anime when a user clicks on an anime
   const setSingle = (data) => {
     setSingleData(data)
   };
 
+  //API look up function
   const query = (anime) => {
     return fetch(
       `http://localhost:8000/anime.${anime}`
     ).then((response) => response.json());
   }
-
+  //Handling all routing, routes everything that isn't a specified URL to home page
   return (
+    //Causes query context methods to be available everywhere in the program without importing 
     <QueryContext.Provider 
     value = {{ query, animeData, setData, singleData, setSingle}}>
     <Router>

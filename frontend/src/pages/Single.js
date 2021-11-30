@@ -4,9 +4,12 @@ import SingleAnime from '../components/SingleAnime';
 import { QueryContext } from '../context/query';
 
 const Single = () => {
-  const search = useContext(QueryContext);
-  const [dataExists, setDataExists] = useState(true);
+  const search = useContext(QueryContext); //Query context to share methods
+  const [dataExists, setDataExists] = useState(true); //Checking if data exists
 
+
+  //Similar to results method, checks if data exists, and if it does passes it to return function if 
+  //not passes an error
   useEffect(() => {
     if (
       search.singleData === undefined ||
@@ -22,6 +25,8 @@ const Single = () => {
     }
   }, [search]);
 
+
+  //display single anime using the single anime component 
   return (
     <div>
       {(dataExists && <SingleAnime info={search.singleData} />) || (

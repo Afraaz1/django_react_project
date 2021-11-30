@@ -29,7 +29,7 @@ const handleQuery = (event) => {
     });  
     };
     
-
+    //Displaying home page image and search bar
     return <Grid 
     container direction="column" 
     justify="center" 
