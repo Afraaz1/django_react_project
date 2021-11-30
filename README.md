@@ -9,7 +9,8 @@
 4. Install Python 3.10.0: `pyenv install 3.10.0`.
 5. Create a new virtualenv called `env`: `pyenv virtualenv 3.10.0 env`.
 6. Start virtual enviroment using `env\scripts\activate` if your using command prompt or `env\scripts\activate.ps1` if you use powershell
-7. Run command Python manage.py runserver
+7. Install all dependancies from requirements.txt using `pip install -r /path/to/requirements.txt`
+8. Run command Python manage.py runserver
 
 # INSTALLATION FOR REACT
 
